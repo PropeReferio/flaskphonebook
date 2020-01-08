@@ -1,0 +1,13 @@
+.navbar a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar a:hover{
+    font-weight: bold;
+}

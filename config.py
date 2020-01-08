@@ -1,5 +1,6 @@
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__)) #Makes file path relative, works on all OS, regardless of file path on
+#different OS
 
 class Config():
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you will never guess'
