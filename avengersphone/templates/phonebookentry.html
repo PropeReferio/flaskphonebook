@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Add your Avenger contacts here</h1>
+
+<form action="" method="POST">
+    <div>
+        <fieldset>
+            {{ bookentry.avenger.label }}
+            {{ bookentry.avenger(class="form-control")}}
+        </fieldset>
+        <fieldset>
+            {{ bookentry.address.label }}
+            {{ bookentry.address(class="form-control")}}
+        </fieldset>
+        <fieldset>
+            {{ bookentry.phone.label }}
+            {{ bookentry.phone(class="form-control")}}
+        </fieldset>
+            {{ bookentry.submit(class="button") }}
+    </div>
+</form>
+{% endblock content %}
