@@ -10,10 +10,10 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="../">Home</a></li>
-            <li><a href="../phonebookentry">Add Entry</a></li>
-            <li><a href="../login">Login</a></li>
-            <li><a href="">News</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('addEntry') }}">Add Entry</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Register</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
         </ul>
