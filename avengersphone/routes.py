@@ -14,21 +14,23 @@ from avengersphone.models import User, Entry ### Create models.py first!!!
 #Home Route
 @app.route("/")
 def home():
-    return render_template("home.html")
+    entries = Entry.query.all()
+    return render_template("home.html", entry = entries)
     
 #Phone Book Entry Route
 @app.route("/phonebookentry", methods=["GET", "POST"])
 @login_required
 def addEntry():
     bookEntry = BookEntry()
-    avenger = bookEntry.avenger.data
-    address = bookEntry.address.data
-    phone = bookEntry.phone.data
-    user_id = current_user.id
-    print(avenger, address, phone)
-    entry = Entry(avenger = avenger,address = address,phone = phone,user_id = user_id)
-    db.session.add(entry)
-    db.session.commit()
+    if request.method == 'POST':
+        avenger = bookEntry.avenger.data
+        address = bookEntry.address.data
+        phone = bookEntry.phone.data
+        user_id = current_user.id
+        print(avenger, address, phone)
+        entry = Entry(avenger = avenger,address = address,phone = phone,user_id = user_id)
+        db.session.add(entry)
+        db.session.commit()
 
     return render_template("phonebookentry.html",bookentry = bookEntry)
 

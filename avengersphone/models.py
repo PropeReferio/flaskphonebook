@@ -19,10 +19,11 @@ class Entry(db.Model, UserMixin):
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    def __init__(self,avenger,address,phone):
+    def __init__(self,avenger,address,phone, user_id):
         self.avenger = avenger
         self.address = address
         self.phone = phone
+        self.user_id = user_id
 
     def __repr__(self):
         return 'An entry has been made for {}'.format(self.avenger)
@@ -32,7 +33,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String(256), nullable=False)
-    post = db.relationship('Entry', backref = 'author', lazy = True)
+    entry = db.relationship('Entry', backref = 'author', lazy = True)
 
     def __init__(self,username,email,password):
         self.username = username
